@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "orquesta",
+  "version": "0.1.0",
+  "description": "Reglas de trabajo compartidas para varios agentes de codigo sobre un mismo workspace: un solo escritor, evidencia marcada, y controles obligatorios.",
+  "author": {
+    "name": "williamgarciadev"
+  }
+}
