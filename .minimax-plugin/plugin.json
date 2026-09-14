@@ -1,9 +1,19 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "schemaVersion": 1,
   "name": "orquesta",
+  "displayName": "Orquesta",
   "version": "0.1.0",
   "description": "Reglas de trabajo compartidas para varios agentes de codigo sobre un mismo workspace: un solo escritor, evidencia marcada, y controles obligatorios.",
-  "author": {
-    "name": "williamgarciadev"
-  }
+  "author": "williamgarciadev",
+  "category": "Code",
+  "exampleQueries": [
+    "Antes de medir, revisa el semaforo del ambiente",
+    "Marca cada afirmacion con su nivel de evidencia",
+    "Agrega un control a este chequeo para saber si mi metodo funciona"
+  ],
+  "apps": [],
+  "mcpServers": [],
+  "skills": [
+    "skills/coordinacion-multiagente/SKILL.md"
+  ]
 }

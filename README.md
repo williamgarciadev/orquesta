@@ -31,14 +31,25 @@ discusión.
 
 ```
 plugin.json                                 manifiesto canónico (esquema cerrado)
-.minimax-plugin/plugin.json                 el mismo, donde lo busca MiniMax Code
+.minimax-plugin/plugin.json                 manifiesto para MiniMax Code
 skills/coordinacion-multiagente/SKILL.md    las seis reglas
 mcp.json                                    pendiente — el servidor de orquesta
 ```
 
-> El manifiesto está duplicado a propósito: la especificación lo ubica en la raíz,
-> y el cargador de MiniMax Code exige `.minimax-plugin/plugin.json`. Es una verruga
-> del cliente, no del formato.
+### Por qué hay dos manifiestos, y por qué NO son copias
+
+La especificación 1.0.0 ubica `plugin.json` en la raíz con un **esquema cerrado**:
+nada de `skills`, `mcpServers` ni campos de cliente en su nivel superior. El
+componente portable se descubre solo.
+
+MiniMax Code lo busca en `.minimax-plugin/plugin.json` y espera otra forma:
+`schemaVersion`, `author` como string, y **`skills` / `mcpServers` como arrays de
+referencias explícitas**.
+
+> ⚠️ Esa última diferencia no es cosmética. Su validador usa
+> `referenceArray(value.skills, ...)`: **un `SKILL.md` que está en disco pero no
+> está declarado no se carga**, y el import igual reporta éxito. Se instala una
+> carpeta de reglas que nadie lee.
 
 ## Instalación
 
